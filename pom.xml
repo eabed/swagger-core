@@ -229,6 +229,51 @@
             <goals>sign</goals>
           </configuration>
         </plugin>
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <plugin>
+        	<groupId>org.eclipse.m2e</groupId>
+        	<artifactId>lifecycle-mapping</artifactId>
+        	<version>1.0.0</version>
+        	<configuration>
+        		<lifecycleMappingMetadata>
+        			<pluginExecutions>
+        				<pluginExecution>
+        					<pluginExecutionFilter>
+        						<groupId>org.scala-tools</groupId>
+        						<artifactId>
+        							maven-scala-plugin
+        						</artifactId>
+        						<versionRange>[2.15.2,)</versionRange>
+        						<goals>
+        							<goal>compile</goal>
+        							<goal>testCompile</goal>
+        						</goals>
+        					</pluginExecutionFilter>
+        					<action>
+        						<ignore></ignore>
+        					</action>
+        				</pluginExecution>
+        				<pluginExecution>
+        					<pluginExecutionFilter>
+        						<groupId>
+        							org.apache.maven.plugins
+        						</groupId>
+        						<artifactId>
+        							maven-dependency-plugin
+        						</artifactId>
+        						<versionRange>[2.1,)</versionRange>
+        						<goals>
+        							<goal>copy-dependencies</goal>
+        						</goals>
+        					</pluginExecutionFilter>
+        					<action>
+        						<ignore></ignore>
+        					</action>
+        				</pluginExecution>
+        			</pluginExecutions>
+        		</lifecycleMappingMetadata>
+        	</configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -475,7 +520,7 @@
     <servlet-api-version>2.5</servlet-api-version>
     <scala-version>2.9.1-1</scala-version>
     <jersey-version>1.7</jersey-version>
-    <jackson-version>1.8.5</jackson-version>
+    <jackson-version>2.0.0</jackson-version>
 
     <junit-version>4.8.1</junit-version>
     <maven-plugin.version>1.0.0</maven-plugin.version>
@@ -484,6 +529,7 @@
     <mongodb-version>2.6.2</mongodb-version>
     <scala-test-version>1.6.1</scala-test-version>
     <jetty.maven.version>7.6.0.RC4</jetty.maven.version>
+    <jetty-version>7.6.0.RC4</jetty-version>
     <servlet-api-version>2.5</servlet-api-version>
   </properties>
 </project>
