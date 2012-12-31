@@ -48,17 +48,17 @@ class ResourceReaderTest extends FlatSpec with ShouldMatchers {
       null,
       null,
       null)
-      
+
     assert(doc.apiVersion == "1.123")
     assert(doc.swaggerVersion == "2.345")
     assert(doc.basePath == "http://my.host.com/basepath")
     assert(doc.resourcePath == "/sample")
     assert(doc.getApis.size === 3)
     assert(doc.getModels.size === 2)
-    
+
     // verify the "howdy" model
-    val props = doc.getModels().get("Howdy").properties.toMap
-    assert((props.map(key=>key._1).toSet & Set("id", "theName", "theValue")).size == 3)
+    val props = doc.getModels().get("howdy").properties.toMap
+    assert((props.map(key => key._1).toSet & Set("id", "theName", "theValue")).size == 3)
   }
 
   it should "read a resource class from a listing path" in {
@@ -77,10 +77,10 @@ class ResourceReaderTest extends FlatSpec with ShouldMatchers {
     assert(doc.getApis.size === 3)
     assert(doc.getModels.size === 2)
 
-    val props = doc.getModels().get("Howdy").properties.toMap
-    assert((props.map(key=>key._1).toSet & Set("id", "theName", "theValue")).size == 3)
-    val inputprops = doc.getModels().get("SampleInput").properties.toMap
-    assert((inputprops.map(key=>key._1).toSet & Set("name", "value")).size === 2)
+    val props = doc.getModels().get("howdy").properties.toMap
+    assert((props.map(key => key._1).toSet & Set("id", "theName", "theValue")).size == 3)
+    val inputprops = doc.getModels().get("sampleInput").properties.toMap
+    assert((inputprops.map(key => key._1).toSet & Set("name", "value")).size === 2)
 
   }
 

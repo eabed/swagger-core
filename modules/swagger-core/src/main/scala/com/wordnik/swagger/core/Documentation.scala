@@ -93,8 +93,11 @@ class Documentation(var apiVersion: String,
   }
 
   def addModel(propertyName: String, obj: DocumentationSchema) = {
-    //the property name is some times studely and some times lower, so make sure it is always studely
-    if (propertyName != null && obj != null) models += propertyName.capitalize -> obj
+    //REMOVED -- the property name is some times studely and some times lower, so make sure it is always studely
+    
+    // ORION-646 : removed capitalization of propertyName, which causes issue with model names 
+    // annotated with @xmlRootElement having names with lowerCamelCase.
+    if (propertyName != null && obj != null) models += propertyName -> obj
   }
 
   override def clone(): Object = {
